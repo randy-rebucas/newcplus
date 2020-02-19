@@ -5,7 +5,7 @@ import { DefaultComponent } from './default.component';
 import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
 import { PatientsComponent } from 'src/app/modules/patients/patients.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatSidenavModule } from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
