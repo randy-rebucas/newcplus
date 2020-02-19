@@ -7,12 +7,21 @@ import { DetailComponent } from './detail/detail.component';
 import { RecordComponent } from './record/record.component';
 import { PatientsComponent } from './patients.component';
 import { CanDeactivateGuard } from './can-deactivate.guard';
+import { AngularMaterialModule } from 'src/app/angular-material.module';
+import { BirthdayPipe } from 'src/app/shared/pipes/birthday.pipe';
 
 
 @NgModule({
-  declarations: [ListComponent, FormComponent, DetailComponent, RecordComponent],
+  declarations: [
+    ListComponent,
+    FormComponent,
+    DetailComponent,
+    RecordComponent,
+    BirthdayPipe
+  ],
   imports: [
     CommonModule,
+    AngularMaterialModule,
     RouterModule.forChild([
       { path: '', component: PatientsComponent, children: [
         { path: '', redirectTo: 'list', pathMatch: 'full' },

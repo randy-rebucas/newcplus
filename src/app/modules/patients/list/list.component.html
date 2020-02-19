@@ -1,1 +1,67 @@
-<p>list works!</p>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" autocomplete="off">
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource">
+
+    <!-- image Column -->
+    <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <img [src]="element.avatar" />
+        </mat-cell>
+    </ng-container>
+
+    <!-- fullname Column -->
+    <ng-container matColumnDef="fullname">
+        <mat-header-cell *matHeaderCellDef> Fullname </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            {{ element.name.firstname }} {{ element.name.midlename }} {{ element.name.lastname }}
+        </mat-cell>
+    </ng-container>
+
+    <!-- contact Column -->
+    <ng-container matColumnDef="contact">
+        <mat-header-cell *matHeaderCellDef> Contact </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.contact}} </mat-cell>
+    </ng-container>
+
+    <!-- gender Column -->
+    <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+    </ng-container>
+
+    <!-- birthdate Column -->
+    <ng-container matColumnDef="birthdate">
+        <mat-header-cell *matHeaderCellDef> Birthdate </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.birthdate | date }} </mat-cell>
+    </ng-container>
+
+    <!-- age Column -->
+    <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.birthdate | birthday }} </mat-cell>
+    </ng-container>
+
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="onEdit(element.id)" aria-label="Edit" title="Edit">
+                <mat-icon>launch</mat-icon>
+              </button>
+            <button mat-icon-button (click)="onDetail(element.id)" aria-label="View" title="View">
+                <mat-icon>visibility</mat-icon>
+              </button>
+            <button mat-icon-button color="warn" (click)="onDelete(element.id)" aria-label="Delete" title="Delete">
+                <mat-icon>delete</mat-icon>
+              </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="pageSizeOptions" [pageSize]="perPage" [length]="length" (page)="onChangedPage($event)" showFirstLastButtons></mat-paginator>

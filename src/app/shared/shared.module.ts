@@ -15,6 +15,8 @@ import { AreaComponent } from './widgets/area/area.component';
 import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,9 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatButtonModule,
     MatMenuModule,
     MatListModule,
+    MatSnackBar,
+    MatSnackBarConfig,
+    MatDialogModule,
     RouterModule,
     FlexLayoutModule,
     HighchartsChartModule

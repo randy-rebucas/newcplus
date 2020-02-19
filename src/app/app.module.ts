@@ -10,6 +10,7 @@ import { DefaultModule } from './layouts/default/default.module';
 import { TranslateLoader, TranslateModule, TranslateCompiler } from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PromptDialogComponent } from './shared/components/prompt-dialog/prompt-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    PromptDialogComponent
+  ]
 })
 export class AppModule { }
 
